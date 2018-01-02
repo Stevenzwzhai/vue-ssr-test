@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 
 
 import pageA from '../components/page1.vue'
-import pageB from '../components/page2.vue'
+// import pageB from '../components/page2.vue'
+const pageB = () => import ('../components/page2.vue')
 import pageIndex from '../components/pageIndex.vue'
 Vue.use(VueRouter)
 const routes = [{
