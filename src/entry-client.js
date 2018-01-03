@@ -13,19 +13,9 @@ router.onReady(() => {
 })
 
 Vue.mixin({
-    beforeMount () {
-        const { asyncData } = this.$options
-        if (asyncData) {
-            asyncData({
-                store: this.$store,
-                route: to
-            }).then(next).catch(next)
-        } else {
-            next()
-        }
-    },
     beforeRouteUpdate (to, from, next) {
         const { asyncData } = this.$options
+        console.log(to)
         if (asyncData) {
             asyncData({
                 store: this.$store,

@@ -11,6 +11,9 @@
             return {
                 talk: 'hello vue-ssr'
             }
+        },
+        mounted() {
+            console.log('page2 mounted')
         }
     }
 </script>

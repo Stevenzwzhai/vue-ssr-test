@@ -19,7 +19,6 @@
         },
         methods: {
             go(path, id) {
-                console.log(id)
                 if (id) {
                     this.$router.push({
                         path: `${path}/${id}`
