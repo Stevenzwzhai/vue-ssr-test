@@ -25,8 +25,8 @@
     }
 </script>
 <style lang="stylus" scoped>
-    .page1{
-        background-color:#fffefd;
-        font-size:16px;
-    }
+    .page1
+        background-color #fffefd
+        font-size 16px
+
 </style>

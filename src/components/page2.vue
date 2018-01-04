@@ -18,8 +18,7 @@
     }
 </script>
 <style lang="stylus" scoped>
-    .page2 {
+    .page2
         background-color red
         font-size 18px
-    }
 </style>
