@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" data-server-rendered="true">
         this is vue page
         <button @click="go('/pageA', 'index')">page1</button>
         <button @click="go('/pageA', 'num1')">page1-num1</button>

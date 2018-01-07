@@ -1,4 +1,5 @@
 import { createApp} from './main'
+var Promise = require('es6-promise').Promise;
 export default context => {
 
     return new Promise((resolve, reject) => {

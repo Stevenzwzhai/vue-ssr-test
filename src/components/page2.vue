@@ -2,6 +2,7 @@
     <div class="page2">
         this page's name is page2
         say:{{talk}}
+
     </div>
 </template>
 <script>

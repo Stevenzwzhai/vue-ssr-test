@@ -3,7 +3,13 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base.config')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
+const path = require('path');
 
+const isProd = process.env.NODE_ENV === 'production'
+
+function resolve(dir) {
+  return path.resolve(__dirname, '..', dir)
+}
 const config = merge(base, {
   entry: {
     app: './src/entry-client.js'
@@ -13,6 +19,7 @@ const config = merge(base, {
       'create-api': './create-api-entry-client.js'
     }
   },
+
   plugins: [
     // strip dev-only code in Vue source
     new webpack.DefinePlugin({

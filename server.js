@@ -54,9 +54,9 @@ if (isProd) {
             app,
             templatePath,
             (bundle, options) => {
-        renderer = createRenderer(bundle, options)
-    }
-)
+                renderer = createRenderer(bundle, options)
+            }
+    )
 }
 
 //设置静态资源缓存
@@ -106,11 +106,12 @@ function render (req, res) {
         if (err) {
             return handleError(err)
         }
+        console.log('render')
         res.send(html)
-    if (!isProd) {
-        console.log(`whole request: ${Date.now() - s}ms`)
-    }
-})
+        if (!isProd) {
+            console.log(`whole request: ${Date.now() - s}ms`)
+        }
+    })
 }
 
 app.get('*', isProd ? render : (req, res) => {

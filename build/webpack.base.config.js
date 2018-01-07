@@ -1,3 +1,4 @@
+const utils = require('./utils')
 const path = require('path')
 const webpack = require('webpack')
 const vueConfig = require('./vue-loader.config')
@@ -5,7 +6,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
-
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 module.exports = {
   devtool: isProd
     ? false
@@ -33,7 +36,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+          include: [
+              resolve('src'),
+              resolve('/node_modules/_mint-ui@2.2.13@mint-ui/lib'),
+              resolve('/node_modules/mint-ui/lib')
+          ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -45,13 +52,29 @@ module.exports = {
       },
       {
         test: /\.css$/,
+         include: [
+             resolve('src'),
+             resolve('/node_modules/_mint-ui@2.2.13@mint-ui/lib')
+          ],
         use: isProd
           ? ExtractTextPlugin.extract({
               use: 'css-loader?minimize',
               fallback: 'vue-style-loader'
             })
           : ['vue-style-loader', 'css-loader']
-      }
+      },
+        {
+            test: /\.scss$/,
+            include: [
+                resolve('src')
+            ],
+            use: isProd
+                    ? ExtractTextPlugin.extract({
+                        use: 'css-loader?minimize',
+                        fallback: 'vue-style-loader'
+                    })
+                    : ['vue-style-loader', 'css-loader', 'sass-loader']
+        }
     ]
   },
   performance: {

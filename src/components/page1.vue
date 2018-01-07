@@ -4,6 +4,8 @@
         <div>
             async data is {{item}}
         </div>
+        <div class="bg">asdfadfa</div>
+        <mt-button>tesd</mt-button>
     </div>
 </template>
 <script>
@@ -29,4 +31,10 @@
         background-color #fffefd
         font-size 16px
 
+</style>
+<style lang="scss" scoped>
+    @import '../style/theam';
+    .bg{
+        background-color: $primary;
+    }
 </style>
